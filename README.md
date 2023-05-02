@@ -1,0 +1,1 @@
+# inogovoe-6.6-zadanie
