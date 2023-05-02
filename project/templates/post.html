@@ -1,0 +1,30 @@
+{% extends 'default.html' %}
+
+{% block content %}
+{% if post %}
+<table>
+    <tr>
+        <td>Автор</td>
+        <td>Заголовок</td>
+        <td>Дата</td>
+        <td>Тип</td>
+        <td>Тект</td>
+        <td>Категории</td>
+    </tr>
+    <tr>
+        <td>{{ post.author }}</td>
+        <td>{{ post.zagolovok }}</td>
+        <td>{{ post.time_in }}</td>
+        <td>{{ post.get_choice_title_display }}</td>
+        <td>{{ post.text }}</td>
+        <td>
+            {% for category in post.Category_post.all %}
+            {{ category }}
+            {% endfor %}
+        </td>
+    </tr>
+</table>
+{% else %}
+Публикаций нет!
+{% endif %}
+{% endblock content %}

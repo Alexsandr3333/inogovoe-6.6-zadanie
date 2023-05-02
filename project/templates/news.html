@@ -1,0 +1,23 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+News
+{% endblock title %}
+
+{% block content %}
+   <h1>Все новости</h1>
+    <h3>{% load custom_tags %}</h3>
+    <h3>{% load censor %}</h3>
+   <h3>{% current_time '%d %b %Y' %}</h3>
+   <h3>{{ next_sale|default_if_none:"Чуть позже сообщим о горячих новостях!" }}</h3>
+   <hr>
+   {% if news %}
+       {% for new in news %}
+           <h2>{{ new.name }}</h2>
+           <p>{{ new.description|truncatechars:20|censor }}</p>
+           <p>Дата публикации: {{ post.pub_date|date:'d.m.Y' }}</p>
+       {% endfor %}
+   {% else %}
+       <h2>Новостей нет!</h2>
+   {% endif %}
+{% endblock content %}

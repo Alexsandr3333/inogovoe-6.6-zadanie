@@ -1,0 +1,11 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+{{ new.name }}
+{% endblock title %}
+
+{% block content %}
+    <h1>{{ new.name }}</h1>
+    <p>{{ new.description }}</p>
+    <p>Дата публикации: {{ post.pub_date|date:'d.m.Y' }}</p>
+{% endblock content %}
